@@ -5,7 +5,7 @@ const gap = 6;
 const minSize = 1.5, maxSize = 4;
 const minSpeed = -0.05, maxSpeed = 0.05;
 const minBounce = 50, maxBounce = 150;
-const minBounceSpeed = 0.05, maxBounceSpeed = 0.12;
+const minBounceSpeed = 0.03, maxBounceSpeed = 0.1;
 
 // Asset Functions
 function getImageData(image, rect) {
@@ -94,7 +94,7 @@ function redraw() {
 	ctx.fillStyle = "#09090c";
 	ctx.fillRect(0,0, w, h);
 
-	ctx.globalAlpha = 0.75;
+	ctx.globalAlpha = 0.6;
 	ctx.fillStyle = "white";
 	let i = 0;
 	for (let d of dots) {
