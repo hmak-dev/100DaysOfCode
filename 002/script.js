@@ -91,7 +91,9 @@ function imageDistort() {
 setInterval(() => {
 	if (rand(1, 10) > 6) {
 		channelDisplace();
-		imageDistort();
+
+		if (rand(1, 10) > 6)
+			imageDistort();
 	} else {
 		ctx.drawImage(orig, 0, 0);
 	}
