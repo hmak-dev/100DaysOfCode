@@ -1,0 +1,25 @@
+body {
+	margin: 0;
+	background: #09090c;
+	color: white;
+	height: 100vh;
+}
+
+.info {
+	position: absolute;
+	bottom: 15px;
+	left: 30px;
+	z-index: 2;
+	font-family: Helvetica;
+	font-weight: 100;
+}
+.info h1 {
+	font-size: 3.3em;
+	font-weight: 100;
+	margin-bottom: -10px;
+	line-height: 1;
+}
+.info p {
+	color: #ddd;
+	font-size: 0.9em;
+}
