@@ -42,17 +42,22 @@ image.remove();
 let ctx = canvas.getContext("2d");
 ctx.drawImage(image, 0, 0, image.width, image.height, 0, 0 , w, h);
 
-let orig = cloneCanvas(canvas);
+const darkness = -30;
+let orig = cloneCanvas(canvas, (d, i) => {
+	d[i] += darkness;
+	d[i + 1] += darkness;
+	d[i + 2] += darkness;
+});
 let red = cloneCanvas(canvas, (d, i) => {
-	d[i] -= 30;
+	d[i] += darkness;
 	d[i + 1] = d[i + 2] = 0;
 });
 let green = cloneCanvas(canvas, (d, i) => {
-	d[i + 1] -= 30;
+	d[i + 1] += darkness;
 	d[i] = d[i + 2] = 0;
 });
 let blue = cloneCanvas(canvas, (d, i) => {
-	d[i + 2] -= 30;
+	d[i + 2] += darkness;
 	d[i] = d[i + 1] = 0;
 });
 
@@ -61,18 +66,17 @@ let channels = [red, green, blue];
 function channelDisplace() {
 	let displace = rand(30, 70);
 
-	ctx.globalCompositeOperation = "source-over";
 	ctx.drawImage(orig, 0, 0);
 
 	ctx.globalCompositeOperation = "screen";
 	ctx.drawImage(red, -displace, 0, w + displace, h);
 	ctx.drawImage(green, 0, 0, w + displace / 2, h);
 	ctx.drawImage(blue, 0, 0, w + displace / 2, h);
+	ctx.globalCompositeOperation = "source-over";
 }
 
 function imageDistort() {
 	let can = cloneCanvas(canvas);
-	ctx.globalCompositeOperation = "source-over";
 
 	let y = 0;
 	while (y < h) {
@@ -89,12 +93,12 @@ function imageDistort() {
 }
 
 setInterval(() => {
-	if (rand(1, 10) > 6) {
+	if (rand(0, 10) > 6) {
 		channelDisplace();
 
-		if (rand(1, 10) > 6)
+		if (rand(0, 10) > 4)
 			imageDistort();
 	} else {
-		ctx.drawImage(orig, 0, 0);
+		ctx.drawImage(image, 0, 0, image.width, image.height, 0, 0 , w, h);
 	}
 }, 200);
