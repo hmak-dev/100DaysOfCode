@@ -72,17 +72,16 @@ let ctx = canvas.getContext("2d");
 // get Image data
 let data = getImageData(img, imgRect).data;
 
-// Genereate Dots
+// Generate Dots
 for (let y = 0; y < h; y += gap) {
 	for (let x = 0; x < w; x += gap) {
+		// Calculate index of pixel in data array
 		let i = (y * w + x) * 4;
-		let r = data[i];
-		let g = data[i + 1];
-		let b = data[i + 2];
 
-		let avg = (r + g + b) / 3;
-
+		// If average of rgb was greater than 60...
+		let avg = data.slice(i, i +  3).reduce((a, b) => a + b) / 3;
 		if (avg > 60) {
+			// Generate a dot on that position
 			dots.push(new Dot(x, y, rand(minSize, maxSize), rand(minSpeed, maxSpeed), rand(0, pi2)));
 		}
 	}
@@ -90,10 +89,12 @@ for (let y = 0; y < h; y += gap) {
 
 // Draw dots on the canvas
 function redraw() {
+	// Fill all with a dark rectangle
 	ctx.globalAlpha = 1;
 	ctx.fillStyle = "#09090c";
 	ctx.fillRect(0,0, w, h);
 
+	// Draw each dot with 0.6 opacity and white color
 	ctx.globalAlpha = 0.6;
 	ctx.fillStyle = "white";
 	let i = 0;
@@ -109,23 +110,32 @@ redraw();
 
 // Process mouse movement and bounce the dots
 canvas.addEventListener("mousemove", e => {
+	// Get mouse position based on canvas bounds
 	let r = canvas.getBoundingClientRect();
-
 	let x = (e.pageX || e.clientX) - r.left, y = (e.pageY || e.clientY) - r.top;
 
+	// Iterate over dots
 	for (let d of dots) {
+		// If the dot was not animating...
 		if (!d.isAnimating) {
+			// Get distance from dot position to mouse position
 			let dx = x - d.cx, dy = y - d.cy;
 			let dist = Math.sqrt(dx ** 2 + dy ** 2);
 
+			// If distance was lower than 50 pixels...
 			if (dist <= 50) {
+				// Calculate angle between dot and mouse position
 				let angle = -Math.atan2(dy, dx);
+
+				// Generate random bounce distance
 				let r = rand(minBounce, maxBounce);
 
+				// Add bounce parameters to the dot
 				d.bx = -Math.cos(angle) * r;
 				d.by = Math.sin(angle) * r;
 				d.bs = rand(minBounceSpeed, maxBounceSpeed);
 
+				// Start dot animating
 				d.isAnimating = true;
 			}
 		}
@@ -134,22 +144,31 @@ canvas.addEventListener("mousemove", e => {
 
 // Each animation frame process
 function animate() {
+	// Iterate over dots
 	for (let d of dots) {
+		// Dot angle increased by dot Step
 		d.a += d.s;
+
+		// If the angle went over 2PI, decrease it to 0
 		if (d.a >= pi2) d.a = 0;
 
+		// If the dot is animating...
 		if (d.isAnimating) {
+			// Dot animation index is increased by dot bounce speed
 			d.ai += d.bs;
 
+			// If the animation index has reached PI, decrease it to 0 and stop animation
 			if (d.ai >= Math.PI) {
 				d.ai = 0;
 				d.isAnimating = false;
 			}
 		}
 
+		// Calculate new position for the dot
 		d.calcPos();
 	}
 
+	// Redraw all dots on the canvas
 	redraw();
 	anim = window.requestAnimationFrame(animate);
 }
