@@ -21,3 +21,11 @@
 **Today's Progress**: This night I started to work on a glitch effect on HTML5 canvas. So I started by displacing channels and then distorting the image. Now I know how to make glitch on an image. At the end I tried to animate and randomize this process.
 
 **Thoughts:** This glitch effect is dope. But I think it could be so much better.
+
+---
+
+### Day 3: December 11, 2019
+
+**Today's Progress**: This project is about audio visualizations and it was cool so I had to learn how to work with AudioContext API in browser.
+
+**Thoughts:** This project can be so much better. I need to free my mind to get some cool ideas for this one...
