@@ -5,6 +5,7 @@ let anim;
 let canvas = document.querySelector(".visualizer");
 const audioSrc = canvas.getAttribute("data-audio");
 const coverSrc = canvas.getAttribute("data-cover");
+let buttons = document.querySelector(".buttons");
 
 let w = h = canvas.width = canvas.height = 600;
 
@@ -51,10 +52,14 @@ document.querySelector("#btnPlay").addEventListener("click", function() {
 
 	audio.play();
 
-	anim = window.requestAnimationFrame(animation)
+	buttons.classList.add("isPlaying");
+
+	anim = window.requestAnimationFrame(animation);
 });
 document.querySelector("#btnPause").addEventListener("click", function() {
 	audio.pause();
+
+	buttons.classList.remove("isPlaying");
 });
 
 function RGBColor(color) {
@@ -88,9 +93,9 @@ function drawDuration() {
 	let progress = currentTime / duration;
 
 	ctx.strokeStyle = "#21D4FD";
-	ctx.lineWidth = 15;
+	ctx.lineWidth = 3;
 	ctx.beginPath();
-	ctx.arc(cx, cy, startRadius - 16, -Math.PI / 2, pi2 * progress - Math.PI / 2);
+	ctx.arc(cx, cy, startRadius - 10, -Math.PI / 2, pi2 * progress - Math.PI / 2);
 	ctx.stroke();
 }
 

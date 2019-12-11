@@ -18,27 +18,47 @@ body {
 
 .buttons {
 	position: absolute;
-	top: 0;
-	left: 0;
-	padding: 30px;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	border-radius: 1000px;
+	width: 302px;
+	height: 302px;
 	display: flex;
 	align-items: center;
+	justify-content: center;
+	transition: all 0.5s ease;
+	overflow: hidden;
+}
+.buttons:hover {
+	background: rgba(0,0,0,0.7);
 }
 
 .btn {
 	background: none;
 	border: none;
 	outline: none;
-	display: flex;
+	display: none;
 	align-items: center;
 	justify-content: center;
-	width: 50px;
-	height: 50px;
 	border-radius: 100px;
 	cursor: pointer;
+	position: absolute;
+	left: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+
+}
+
+.buttons:not(.isPlaying):hover #btnPlay {
+	display: flex;
+}
+.buttons.isPlaying:hover #btnPause {
+	display: flex;
 }
 
 .btn svg {
-	height: 32px;
+	height: 64px;
 	fill: white;
 }
