@@ -1,0 +1,86 @@
+:root {
+	--rx: 0deg;
+	--ry: 0deg;
+}
+
+$startColor: #21D4FD;
+$endColor: #B721FF;
+
+html {
+	height: 100%;
+}
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #09090c;
+	perspective: 1000px;
+}
+
+#box {
+	transform: rotateX(var(--rx)) rotateY(var(--ry));
+	transform-style: preserve-3d;
+	width: 400px;
+	height: 400px;
+
+	.face {
+		width: 400px;
+		height: 400px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		border: 2px solid rgba(gray, 0.2);
+		border-radius: 10px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		box-sizing: border-box;
+
+		@for $i from 1 through 21 {
+			&:nth-child(#{$i}) {
+				transform: translateZ((11 - $i) * 20px);
+
+				&::before {
+					animation-delay: (21 - $i) * 0.16s;
+				}
+			}
+		}
+
+		&::before {
+			content: "";
+			width: 80%;
+			height: 80%;
+			border-radius: 100%;
+			border: 3px solid $startColor;
+			box-sizing: border-box;
+			transform: scale(0);
+			animation: anim 8s ease-in-out infinite;
+		}
+	}
+}
+
+@keyframes anim {
+	0% {
+		transform: scale(0);
+		border-color: $startColor;
+		box-shadow: 0 0 40px rgba($startColor, 0.25), inset 0 0 20px rgba($startColor, 0.2);
+	}
+	25% {
+		transform: scale(0.8);
+		border-color: $endColor;
+		box-shadow: 0 0 40px rgba($endColor, 0.25), inset 0 0 20px rgba($endColor, 0.2);
+	}
+	50% {
+		transform: scale(0);
+		border-color: $startColor;
+		box-shadow: 0 0 40px rgba($startColor, 0.25), inset 0 0 20px rgba($startColor, 0.2);
+	}
+	100% {
+		transform: scale(0);
+		border-color: $startColor;
+		box-shadow: 0 0 40px rgba($startColor, 0.25), inset 0 0 20px rgba($startColor, 0.2);
+	}
+}

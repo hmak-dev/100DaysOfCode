@@ -1,0 +1,200 @@
+:root {
+  --rx: 0deg;
+  --ry: 0deg;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #09090c;
+  perspective: 1000px;
+}
+
+#box {
+  transform: rotateX(var(--rx)) rotateY(var(--ry));
+  transform-style: preserve-3d;
+  width: 400px;
+  height: 400px;
+}
+#box .face {
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 2px solid rgba(128, 128, 128, 0.2);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+#box .face:nth-child(1) {
+  transform: translateZ(200px);
+}
+#box .face:nth-child(1)::before {
+  animation-delay: 3.2s;
+}
+#box .face:nth-child(2) {
+  transform: translateZ(180px);
+}
+#box .face:nth-child(2)::before {
+  animation-delay: 3.04s;
+}
+#box .face:nth-child(3) {
+  transform: translateZ(160px);
+}
+#box .face:nth-child(3)::before {
+  animation-delay: 2.88s;
+}
+#box .face:nth-child(4) {
+  transform: translateZ(140px);
+}
+#box .face:nth-child(4)::before {
+  animation-delay: 2.72s;
+}
+#box .face:nth-child(5) {
+  transform: translateZ(120px);
+}
+#box .face:nth-child(5)::before {
+  animation-delay: 2.56s;
+}
+#box .face:nth-child(6) {
+  transform: translateZ(100px);
+}
+#box .face:nth-child(6)::before {
+  animation-delay: 2.4s;
+}
+#box .face:nth-child(7) {
+  transform: translateZ(80px);
+}
+#box .face:nth-child(7)::before {
+  animation-delay: 2.24s;
+}
+#box .face:nth-child(8) {
+  transform: translateZ(60px);
+}
+#box .face:nth-child(8)::before {
+  animation-delay: 2.08s;
+}
+#box .face:nth-child(9) {
+  transform: translateZ(40px);
+}
+#box .face:nth-child(9)::before {
+  animation-delay: 1.92s;
+}
+#box .face:nth-child(10) {
+  transform: translateZ(20px);
+}
+#box .face:nth-child(10)::before {
+  animation-delay: 1.76s;
+}
+#box .face:nth-child(11) {
+  transform: translateZ(0px);
+}
+#box .face:nth-child(11)::before {
+  animation-delay: 1.6s;
+}
+#box .face:nth-child(12) {
+  transform: translateZ(-20px);
+}
+#box .face:nth-child(12)::before {
+  animation-delay: 1.44s;
+}
+#box .face:nth-child(13) {
+  transform: translateZ(-40px);
+}
+#box .face:nth-child(13)::before {
+  animation-delay: 1.28s;
+}
+#box .face:nth-child(14) {
+  transform: translateZ(-60px);
+}
+#box .face:nth-child(14)::before {
+  animation-delay: 1.12s;
+}
+#box .face:nth-child(15) {
+  transform: translateZ(-80px);
+}
+#box .face:nth-child(15)::before {
+  animation-delay: 0.96s;
+}
+#box .face:nth-child(16) {
+  transform: translateZ(-100px);
+}
+#box .face:nth-child(16)::before {
+  animation-delay: 0.8s;
+}
+#box .face:nth-child(17) {
+  transform: translateZ(-120px);
+}
+#box .face:nth-child(17)::before {
+  animation-delay: 0.64s;
+}
+#box .face:nth-child(18) {
+  transform: translateZ(-140px);
+}
+#box .face:nth-child(18)::before {
+  animation-delay: 0.48s;
+}
+#box .face:nth-child(19) {
+  transform: translateZ(-160px);
+}
+#box .face:nth-child(19)::before {
+  animation-delay: 0.32s;
+}
+#box .face:nth-child(20) {
+  transform: translateZ(-180px);
+}
+#box .face:nth-child(20)::before {
+  animation-delay: 0.16s;
+}
+#box .face:nth-child(21) {
+  transform: translateZ(-200px);
+}
+#box .face:nth-child(21)::before {
+  animation-delay: 0s;
+}
+#box .face::before {
+  content: "";
+  width: 80%;
+  height: 80%;
+  border-radius: 100%;
+  border: 3px solid #21D4FD;
+  box-sizing: border-box;
+  transform: scale(0);
+  animation: anim 8s ease-in-out infinite;
+}
+
+@keyframes anim {
+  0% {
+    transform: scale(0);
+    border-color: #21D4FD;
+    box-shadow: 0 0 40px rgba(33, 212, 253, 0.25), inset 0 0 20px rgba(33, 212, 253, 0.2);
+  }
+  25% {
+    transform: scale(0.8);
+    border-color: #B721FF;
+    box-shadow: 0 0 40px rgba(183, 33, 255, 0.25), inset 0 0 20px rgba(183, 33, 255, 0.2);
+  }
+  50% {
+    transform: scale(0);
+    border-color: #21D4FD;
+    box-shadow: 0 0 40px rgba(33, 212, 253, 0.25), inset 0 0 20px rgba(33, 212, 253, 0.2);
+  }
+  100% {
+    transform: scale(0);
+    border-color: #21D4FD;
+    box-shadow: 0 0 40px rgba(33, 212, 253, 0.25), inset 0 0 20px rgba(33, 212, 253, 0.2);
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

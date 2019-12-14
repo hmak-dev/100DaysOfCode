@@ -23,10 +23,10 @@ body {
 	position: relative;
 }
 .steps .step:nth-child(odd) {
-	transform: skew(60deg, -30deg) scaleY(0.675);
+	transform: skew(60deg, -30deg) scaleY(0.6667);
 }
 .steps .step:nth-child(even) {
-	transform: skew(0deg, -30deg) scaleY(1.334);
+	transform: skew(0deg, -30deg) scaleY(1.3333);
 }
 
 .steps .step p {

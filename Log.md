@@ -29,3 +29,19 @@
 **Today's Progress**: This project is about audio visualizations and it was cool so I had to learn how to work with AudioContext API in browser.
 
 **Thoughts:** This project can be so much better. I need to free my mind to get some cool ideas for this one...
+
+---
+
+### Day 4: December 13, 2019
+
+**Today's Progress**: Here I created a CSS text effect that is controlled with Javascript. I saw this effect a long time ago and I was wondering how it can be done.
+
+**Thoughts:** This is good but it has a little bug that there is a tiny gap between the steps that I should fix it in the future.
+
+---
+
+### Day 5: December 14, 2019
+
+**Today's Progress**: This CSS 3D box will emit circles to the mouse direction. The original idea is from [Yusuke Nakaya](https://codepen.io/YusukeNakaya/full/OGwmOV). I just recreated the wheel.
+
+**Thoughts:** I tried to manage CSS 3D transforms and creating such animations...
