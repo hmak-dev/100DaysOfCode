@@ -45,3 +45,11 @@
 **Today's Progress**: This CSS 3D box will emit circles to the mouse direction. The original idea is from [Yusuke Nakaya](https://codepen.io/YusukeNakaya/full/OGwmOV). I just recreated the wheel.
 
 **Thoughts:** I tried to manage CSS 3D transforms and creating such animations...
+
+---
+
+### Day 6: December 15, 2019
+
+**Today's Progress**: Using css blur and a high contrast we can create a Goo effect in css. But there is an alternative way to do it with SVG color matrix and filters.
+
+**Thoughts:** This method has some performance issues and CSS method also has some color issues and I don't know how it can be fixed :D
